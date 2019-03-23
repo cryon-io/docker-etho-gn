@@ -1,12 +1,47 @@
 ## Docker Ether-1 Gateway Node © cryon.io 2019
 
-Docker template for Ether1 Master nodes.
+Docker template for Ether-1 Gateway Node.
 
-*Created and maintained with support from [Ether-1 Project](https://ether1.org/), Ether-1 Community and VPS provider - [WebAge](https://clients.webage.online/order/main/packages/Kernel-based%20Virtual%20Machine/?group_id=6).*
 
 ETHO Donations: `0x46Ff451710Dd245040098c2F308CA55A373ff2cE`
 
-[Quick Start Guide](https://github.com/cryi/docker-etho-sn/wiki/Quickstart---AMS)
+<details>
+<summary>All Donation Addresses</summary>
+<p>
+General: 
+
+| Currency      | Address       |
+| ------------- |---------------|
+| ADA   | `DdzFFzCqrhskw9aCFBtbNaTJQ8YP5JQbKrGYZufjnxmpPXawoyph3kTQPpAFo92zHUzXagYoFAuCfzrM7VWmQmv4zKu1Srte2hQybbdU`|
+| BTC   | `1GNeAADRvghCK9bfvCkfvhpn5refs1ptur`|
+| CLO   | `0x564Ba7f1f50731BE66D8268Ce1BF5437CaBe7cF9`|
+| DASH  | `Xy5GKM76y6npuX1CuisiRbQaAMNLbkcom9`|
+| DOGE  | `DEYdPoPDoQbXev8yUDScw6yfUJELkRo21u`|
+| ETC   | `0x9Ae1145cBE787911682b841e9A0e4dfEd7053A26`|
+| ETH   | `0x21CA1661617c7132c8Eb9d7bD5991b8ae46aB612`|
+| LSK   | `6899960334149976210L`|
+| LTC   | `LhbjK9mLcRNxDDMNniDmEib2AnuifZAS4Q`|
+| WAVES | `3P8zfPreDAYZFjWrvvoRXFirY322QnntPkL`|
+| XLM   | `GABQUVQASWXUPWA7ZR5CLL43V3UD3MCPTRERC7WNRGZVG5VYAIT3HFPS`|
+| XMR   | `43kUUCUdrUxeSWsLCJLfFbeYf4CZxGnmpSs4MdaxtPE8PdkKm8sSyA7BZfVwCaVfLFEoewheCoJZagWnwMAdZa821GNFG9q`|
+| XRP   | `rP86kHKofB8nZCUA7e1C89csRSSkEkNb5x`|
+| XVG   | `DNmUxSSbYGF9iZnCHgQVmtyPSsewZduXvf`|
+| ZEC   | `t1WE6Am9AFWojyUDKu5LboAAd3F9BX3Xb9n`|
+| ZEN   | `znhsEqGyaNp3sTe2fkoKCvbLP7MeWSc7SAm`|
+
+Supported node specific:
+
+| Currency      | Address       |
+| ------------- |---------------|
+| CRW   | `16a1Ekv3tFNGX7YmzKLcdJnSam61BrNFrH`|
+| ETHO  | `0x46Ff451710Dd245040098c2F308CA55A373ff2cE`|
+| GIN   | `GNSysXfThymKMSTKRaP7Nc1TLK3RkVbxuM`|
+| SND   | `SaQpqmT2nimD8jLPZwfx3eL9B4jWmvqyWx`|
+| ULEAD | `UYKAaZFM4gcv9msJREgEVgMwwcfJoVYBit`|
+| WIRE  | `CRxuR593XxLQEXtxvM45wXo45kwxDgdXTd`|
+| ZEST  | `ZEeDEnGaPHRmA5VN6cHWN7fdsQWgcN3v5z`|
+</p>
+</details> 
 
 ## Prerequisites 
 
@@ -15,19 +50,10 @@ ETHO Donations: `0x46Ff451710Dd245040098c2F308CA55A373ff2cE`
 
 (If you run on VPS provider, which uses OpenVZ, setup requires at OpenVZ 7)
 
-## Setup ANS (AUTONOMOUS NODE SYSTEM - recommended)
+For detailed information check out [Ether-1 Gateway Node WIKI](https://github.com/cryon-io/docker-etho-gn/wiki)
 
-1. - `git clone "https://github.com/cryi/AMS.git" [path] && cd [path] && chmod +x ./ams` # replace path with directory you want to store node in
-   or 
-   - `wget https://github.com/cryi/AMS/archive/master.zip && unzip -o master.zip && mv ./AMS-master [path] && cd [path] && chmod +x ./ams`
-2. one of commands below depending of your preference (run as *root* or use *sudo*)
-    - `./ams --full --node=ETHO_GN` # full setup of Ether1 GN for current user
-    - `./ams --full --user=[user] --node=ETHO_GN --auto-update-level=[level]` # full setup of Ether1 GN for defined user (directory location and structure is preserved) sets specified auto update level (Refer to auto updates)
-3.  logout, login and check node status
-    - `./ams --node-info` #     
-4. register your ETHO node https://nodes.ether1.org/login.php
-    - Instructions: [Ether-1 SN/MN Setup Section 8](https://docs.ether1.org/masternodes/installing-uninstalling-ether-1-nodes/setting-up-ether-1-mn-sn#section-8-node-dashboard-verification-process-an-explanation-on-how-to-finalize-the-node-set-up-the-process-on-the-ether-1-website)
+## Setup
 
-## Manual Setup (non AMS)
-
-Recommended only for advance users. Guide - [Manual Setup](https://github.com/cryi/docker-etho-sn/wiki/Manual-Setup).
+- [Unit (Recommended for beginners)](https://github.com/cryon-io/docker-etho-gn/wiki/%5Bsetup%5D-Unit)
+- [ANS (advanced users)](https://github.com/cryon-io/docker-etho-gn/wiki/%5Bsetup%5D-ANS)
+- [Standalone (pros only)](https://github.com/cryon-io/docker-etho-gn/wiki/%5Bsetup%5D-Standalone)
