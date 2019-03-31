@@ -18,9 +18,37 @@
 #
 #  Contact: cryi@tutanota.com
 
-curl -L "https://ether1.org/releases/ipfs.tar.gz" -o ./ipfs.tar.gz
-tar -xzf ipfs.tar.gz
-rm -f ./ipfs.tar.gz
+GIT_INFO=$(curl -sL "https://api.github.com/repos/Ether1Project/Ether-1-GN-Binaries/releases/latest")                                       
+URL=$(printf "%s\n" "$GIT_INFO" | jq .assets[].browser_download_url -r | grep ipfs)                        
 
+if [ -f "./limits.conf" ]; then 
+    if grep "NODE_BINARY=" "./limits.conf"; then 
+        NODE_BINARY=$(grep "NODE_BINARY=" "./limits.conf" | sed 's/NODE_BINARY=//g')
+        if [ -n "$NODE_BINARY" ] && [ ! "$NODE_BINARY" = "auto" ]; then
+            URL=$NODE_BINARY
+        fi
+    fi
+fi
+
+FILE=crown
+
+case "$URL" in
+    *.tar.gz) 
+        curl -L "$URL" -o "./$FILE.tar.gz"
+        tar -xzvf "./$FILE.tar.gz"
+        rm -f "./$FILE.tar.gz"
+    ;;
+    *.zip)
+        curl -L "$URL" -o "./$FILE.zip"
+        unzip "./$FILE.zip"
+        rm -f "./$FILE.zip"
+    ;;
+esac
+
+cp -f "$(find . -name ipfs)" . 2>/dev/null
 mv ./ipfs /usr/sbin/ipfs
 chmod +x /usr/sbin/ipfs
+
+printf "%s" "$(printf "%s" "$GIT_INFO" | jq .tag_name -r | sed 's\v\\')" > ./version
+
+exit 0
