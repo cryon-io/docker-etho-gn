@@ -30,7 +30,7 @@ if [ -f "./limits.conf" ]; then
     fi
 fi
 
-FILE=crown
+FILE=ipfs
 
 case "$URL" in
     *.tar.gz) 
