@@ -29,6 +29,18 @@ services:
       - AUTOHEAL_INTERVAL=5
       - STOP_TIMEOUT=60
 
+  ip-map:
+    restart: always
+    init: true
+    build: ./containers/ip-map
+    stop_grace_period: 30s
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+    volumes:       
+      - "./.icc/map-ip:/map-ip:ro"
+      - "./.icc/mapped-ip:/mapped-ip:rw"
+
   mn:
     restart: always
     init: true
@@ -36,11 +48,15 @@ services:
     stop_grace_period: 1m
     volumes:
       - "./data/etho:/home/etho/.ether1:rw"
+      - "./.icc/map-ip:/map-ip:rw"
+      - "./.icc/mapped-ip:/mapped-ip:ro"
     pids_limit: 50
     labels:
       - autoheal=true
     ports:
       - "30305:30305"
+    env_file:
+      - "./.env"
 
   ethofs:
     restart: always

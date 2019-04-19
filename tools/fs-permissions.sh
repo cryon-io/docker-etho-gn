@@ -28,7 +28,8 @@ DIRS=\
 '{
     "writable": [
         "data/etho",
-        "data/ethofs"
+        "data/ethofs",
+        ".icc"
     ]
 }'
 
