@@ -4,7 +4,7 @@ shutdown() {
   echo "shutting down container"
 
   # first shutdown any service started by runit
-  for _srv in $(ls -1 ~/service); do
+  for _srv in $(ls -1 /home/etho/service); do
     sv force-stop $_srv
   done
 
@@ -23,7 +23,7 @@ shutdown() {
 }
 
 # store enviroment variables
-export > ~/envvars
+export > /home/etho/envvars
 
 _maxstorage="78GB"
 ipfs config Addresses.Gateway /ip4/0.0.0.0/tcp/8080
@@ -39,16 +39,16 @@ fi
 PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin
 
 # run all scripts in the run_once folder
-/bin/run-parts ~/run_once
+# /bin/run-parts ~/run_once
 
-exec env - PATH=$PATH runsvdir -P ~/service &
+exec env - PATH=$PATH runsvdir -P /home/etho/service &
 
 RUNSVDIR=$!
 echo "Started runsvdir, PID is $RUNSVDIR"
 echo "wait for processes to start...."
 
 sleep 5
-for _srv in $(ls -1 ~/service); do
+for _srv in $(ls -1 /home/etho/service); do
     sv status $_srv
 done
 
