@@ -46,6 +46,7 @@ COPY ./boot.sh /sbin/boot.sh
 COPY get-ethofs.sh ./get-ethofs.sh
 COPY get-ipfs.sh ./get-ipfs.sh
 COPY init-ipfs.sh ./init-ipfs.sh
+COPY limits.conf ./limits.conf
 
 # set execution rights
 RUN chmod +x ./get-ethofs.sh ./get-ipfs.sh /sbin/boot.sh ./init-ipfs.sh /sbin/boot.sh
