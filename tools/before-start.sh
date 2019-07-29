@@ -53,7 +53,7 @@ if [ ! -d "$BASEDIR/../data/etho/geth/" ]; then
         rm -f "./$FILE.zip")
     ;;
     *.tar.bz2)
-        (cd "$BASEDIR/../data/geth/" && \
+        (cd "$BASEDIR/../data/etho/geth/" && \
         curl -L "$URL" -o "./$FILE.tar.bz2" && \
         tar xjf "./$FILE.tar.bz2" && \
         rm -f "./$FILE.tar.bz2")
