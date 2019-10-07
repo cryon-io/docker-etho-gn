@@ -61,4 +61,8 @@ case $PARAM in
         TEMP=$(sed "s/EXTERNAL_IP=.*/EXTERNAL_IP=$VALUE_FOR_SED/g" "$BASEDIR/../.env")
         printf "%s" "$TEMP" > "$BASEDIR/../.env"
     ;;
+    IP)
+        TEMP=$(sed "s/EXTERNAL_IP=.*/EXTERNAL_IP=$VALUE_FOR_SED/g" "$BASEDIR/../.env")
+        printf "%s" "$TEMP" > "$BASEDIR/../.env"
+    ;;
 esac
