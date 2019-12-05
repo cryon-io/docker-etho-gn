@@ -2,6 +2,13 @@
 data/*
 docs/*
 !data/.gitkeep
+data/ethofs/*
+!data/ethofs/swarm.key
+data/etho/*
+!data/etho/.gitkeep
+data/etho/geth/*
+!data/etho/geth/.gitkeep
+
 .icc/ip-map/*
 .icc/etho/*
 !.icc/ip-map/.gitkeep
